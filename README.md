@@ -1,20 +1,89 @@
-<div align="center">
-<img width="1200" height="475" alt="GHBanner" src="https://github.com/user-attachments/assets/0aa67016-6eaf-458a-adb2-6e31a0763ed6" />
-</div>
+# PromptMastery
 
-# Run and deploy your AI Studio app
+A comprehensive collection of LLM optimization techniques for building production-ready AI applications. This interactive web app provides theory, examples, and best practices for prompt engineering, agentic architectures, and performance optimization.
 
-This contains everything you need to run your app locally.
+## Features
 
-View your app in AI Studio: https://ai.studio/apps/drive/1elSN936EmzvsWv-GtGlflBDOCQRwzp3-
+- **30+ Optimization Techniques**: Covering Agentic Architecture, Retrieval Systems, Security, and Performance
+- **Interactive Learning**: Each technique includes theory, code examples, and quizzes
+- **Production-Ready Patterns**: Real-world examples with trade-offs and compatibility analysis
+- **Progressive Learning**: Track your progress as you master each technique
 
 ## Run Locally
 
-**Prerequisites:**  Node.js
+**Prerequisites:** Node.js (v18 or higher)
 
+1. Clone the repository:
+   ```bash
+   git clone https://github.com/voku/PromptMastery.git
+   cd PromptMastery
+   ```
 
-1. Install dependencies:
-   `npm install`
-2. Set the `GEMINI_API_KEY` in [.env.local](.env.local) to your Gemini API key
-3. Run the app:
-   `npm run dev`
+2. Install dependencies:
+   ```bash
+   npm install
+   ```
+
+3. Start the development server:
+   ```bash
+   npm run dev
+   ```
+
+4. Open your browser to `http://localhost:3000`
+
+## Build for Production
+
+```bash
+npm run build
+```
+
+The production-ready files will be in the `dist/` directory.
+
+## Preview Production Build
+
+```bash
+npm run preview
+```
+
+## Deployment
+
+This application is configured for GitHub Pages deployment. The GitHub Actions workflow automatically builds and deploys the app when changes are pushed to the main branch.
+
+## Helper Prompts
+
+### Key Files Detector
+
+Use this prompt to quickly understand the structure of this codebase:
+
+```
+Analyze this codebase and identify the key files I should review first. For each file, provide:
+1. The file path
+2. Its primary responsibility
+3. Why it's important to understand
+4. Dependencies or files it interacts with
+
+Focus on: 
+- Application entry points
+- Core component files
+- Configuration files
+- Type definitions
+
+Present the results in a prioritized list, starting with the most critical files to understand the architecture.
+```
+
+## Project Structure
+
+- `App.tsx` - Main application component with routing logic
+- `constants.ts` - All optimization techniques and their content
+- `components/` - React components for UI
+- `types.ts` - TypeScript type definitions
+- `hooks/` - Custom React hooks
+- `vite.config.ts` - Vite build configuration
+
+## Contributing
+
+Contributions are welcome! Please feel free to submit a Pull Request.
+
+## License
+
+MIT
