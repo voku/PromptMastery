@@ -4,7 +4,7 @@ import { Technique } from '../types';
 import { Playground } from './Playground';
 import { Quiz } from './Quiz';
 import { TechniqueDiagram } from './TechniqueDiagram';
-import { BookOpen, Code2, Brain, Activity, Terminal, ArrowRight, ArrowLeft, CheckCircle, TrendingUp, TrendingDown, Link2, Unlink, Tag } from 'lucide-react';
+import { BookOpen, Code2, Brain, Activity, Terminal, ArrowRight, ArrowLeft, CheckCircle, TrendingUp, TrendingDown, Link2, Unlink, Tag, ExternalLink } from 'lucide-react';
 import { Button } from './ui/Button';
 import { TECHNIQUES } from '../constants';
 
@@ -288,6 +288,43 @@ export const TechniqueView: React.FC<TechniqueViewProps> = ({ technique, onQuizC
             </div>
           </div>
         </section>
+
+        {/* Related Links Section */}
+        {technique.relatedLinks && technique.relatedLinks.length > 0 && (
+          <section id="resources" className="scroll-mt-40">
+            <h2 className="text-2xl font-bold mb-6 flex items-center gap-2 text-gray-900 dark:text-white border-b border-gray-200 dark:border-gray-800 pb-2">
+              <ExternalLink className="text-brand-500" /> Related Resources
+            </h2>
+            <div className="grid gap-4">
+              {technique.relatedLinks.map((link, index) => (
+                <a
+                  key={index}
+                  href={link.url}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="block p-4 bg-white dark:bg-gray-900 border border-gray-200 dark:border-gray-800 rounded-xl hover:border-brand-300 dark:hover:border-brand-700 hover:shadow-lg transition-all group"
+                >
+                  <div className="flex items-start gap-3">
+                    <ExternalLink size={18} className="text-brand-500 mt-1 flex-shrink-0 group-hover:scale-110 transition-transform" />
+                    <div className="flex-1 min-w-0">
+                      <h3 className="font-bold text-gray-900 dark:text-white mb-1 group-hover:text-brand-600 dark:group-hover:text-brand-400 transition-colors">
+                        {link.title}
+                      </h3>
+                      {link.description && (
+                        <p className="text-sm text-gray-600 dark:text-gray-400 mb-2">
+                          {link.description}
+                        </p>
+                      )}
+                      <p className="text-xs text-gray-400 dark:text-gray-500 font-mono truncate">
+                        {link.url}
+                      </p>
+                    </div>
+                  </div>
+                </a>
+              ))}
+            </div>
+          </section>
+        )}
 
         {/* Lab Section */}
         <section id="lab" className="scroll-mt-40">
