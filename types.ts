@@ -13,6 +13,12 @@ export interface TradeOffs {
   incompatibleWith: string[]; // IDs of other techniques
 }
 
+export interface RelatedLink {
+  title: string;
+  url: string;
+  description?: string;
+}
+
 export interface Technique {
   id: string;
   title: string;
@@ -35,6 +41,9 @@ export interface Technique {
   playgroundTask?: string; // Instructions for the user
   optimizedExample?: string; // Pre-calculated optimization result (Analysis + Prompt)
   optimizedPrompt?: string; // NEW: The clean optimized prompt text for copying
+  
+  // Related Resources
+  relatedLinks?: RelatedLink[]; // External learning resources
   
   quiz: QuizQuestion[];
 }

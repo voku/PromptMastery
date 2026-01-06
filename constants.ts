@@ -62,6 +62,23 @@ if "APPLY" in input("Approve? "):
       compatibleWith: ["interactive-clarification", "structured-outputs"],
       incompatibleWith: ["context-caching"]
     },
+    relatedLinks: [
+      {
+        title: "Chain-of-Thought Prompting Elicits Reasoning in Large Language Models",
+        url: "https://arxiv.org/abs/2201.11903",
+        description: "Original research paper from Google introducing Chain-of-Thought prompting"
+      },
+      {
+        title: "Prompt Engineering Guide: Chain of Thought",
+        url: "https://www.promptingguide.ai/techniques/cot",
+        description: "Comprehensive guide on CoT techniques and best practices"
+      },
+      {
+        title: "OpenAI Cookbook: Techniques to improve reliability",
+        url: "https://cookbook.openai.com/articles/techniques_to_improve_reliability",
+        description: "OpenAI's official guide on improving LLM reliability including CoT approaches"
+      }
+    ],
     playgroundPrompt: "Add a 'Export to PDF' feature to the app.",
     playgroundTask: "Break this request into 4 distinct prompts representing Discovery, Planning, Implementation, and Verification.",
     optimizedPrompt: `1. Discovery: "Analyze the current codebase. Which libraries are currently used for file handling? Where are reports currently generated?"
@@ -144,6 +161,23 @@ result = exec(python_code)
       compatibleWith: ["cognitive-tool-use", "structured-outputs"],
       incompatibleWith: ["Pure creative writing"]
     },
+    relatedLinks: [
+      {
+        title: "Program of Thoughts Prompting: Disentangling Computation from Reasoning",
+        url: "https://arxiv.org/abs/2211.12588",
+        description: "Research paper introducing Program-of-Thought prompting for complex reasoning"
+      },
+      {
+        title: "OpenAI Code Interpreter Documentation",
+        url: "https://platform.openai.com/docs/assistants/tools/code-interpreter",
+        description: "Official documentation for OpenAI's Code Interpreter tool"
+      },
+      {
+        title: "LangChain Python REPL Tool",
+        url: "https://python.langchain.com/docs/integrations/tools/python",
+        description: "Tool for executing Python code in LangChain applications"
+      }
+    ],
     playgroundPrompt: "If I invest $500 monthly at 7% annual return, how much will I have in 30 years?",
     playgroundTask: "Instruct the model to write a Python script to solve this instead of answering directly.",
     optimizedPrompt: `Goal: Calculate investment growth.
@@ -385,6 +419,23 @@ if response.choices[0].message.tool_calls:
       compatibleWith: ["structured-outputs", "workflow-phases"],
       incompatibleWith: ["Pure text-generation tasks"]
     },
+    relatedLinks: [
+      {
+        title: "OpenAI Function Calling Guide",
+        url: "https://platform.openai.com/docs/guides/function-calling",
+        description: "Official OpenAI documentation on function calling and tool use"
+      },
+      {
+        title: "ReAct: Synergizing Reasoning and Acting in Language Models",
+        url: "https://arxiv.org/abs/2210.03629",
+        description: "Research paper introducing the ReAct framework for reasoning and acting"
+      },
+      {
+        title: "Anthropic Tool Use Documentation",
+        url: "https://docs.anthropic.com/en/docs/build-with-claude/tool-use",
+        description: "Guide on using tools with Claude for extended capabilities"
+      }
+    ],
     playgroundPrompt: "Get the weather for London and check if I need an umbrella.",
     playgroundTask: "Define a JSON Schema for a 'get_weather' tool that the model must call instead of guessing.",
     optimizedPrompt: `SYSTEM: "You have access to the following tools:"
@@ -479,6 +530,23 @@ model.generate_content(
       compatibleWith: ["meta-prompting", "context-map"],
       incompatibleWith: ["Dynamic System Prompts"]
     },
+    relatedLinks: [
+      {
+        title: "Anthropic Prompt Caching Documentation",
+        url: "https://docs.anthropic.com/en/docs/build-with-claude/prompt-caching",
+        description: "Official guide on using prompt caching with Claude to reduce costs"
+      },
+      {
+        title: "Google Gemini Context Caching",
+        url: "https://ai.google.dev/gemini-api/docs/caching",
+        description: "Documentation for context caching in Gemini API"
+      },
+      {
+        title: "OpenAI Prompt Caching (Beta)",
+        url: "https://platform.openai.com/docs/guides/prompt-caching",
+        description: "OpenAI's implementation of prompt caching for cost reduction"
+      }
+    ],
     playgroundPrompt: "I have a 10,000 word rulebook. Check if this specific user action violates it.",
     playgroundTask: "Reorder the prompt components to ensure the 10k rulebook is cached across 1,000 different user queries.",
     optimizedPrompt: `[START CACHEABLE BLOCK]

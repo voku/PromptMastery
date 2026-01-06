@@ -1,7 +1,7 @@
 import React, { useState, useEffect, useRef } from 'react';
 import { TECHNIQUES } from '../constants';
 import * as Icons from 'lucide-react';
-import { Menu, X, Sun, Moon, Home } from 'lucide-react';
+import { Menu, X, Sun, Moon, Home, Github } from 'lucide-react';
 
 interface LayoutProps {
   currentTechniqueId: string | null;
@@ -129,15 +129,29 @@ export const Layout: React.FC<LayoutProps> = ({ currentTechniqueId, onNavigate, 
             ))}
           </nav>
 
-          <div className="mt-6 pt-6 border-t border-gray-200 dark:border-gray-800 flex items-center justify-between flex-shrink-0">
-            <span className="text-sm font-medium text-gray-500">Appearance</span>
-            <button 
-              onClick={toggleTheme}
-              className="p-2 rounded-lg bg-gray-100 dark:bg-gray-800 text-gray-600 dark:text-gray-400 hover:bg-gray-200 dark:hover:bg-gray-700 transition-colors focus:outline-none focus:ring-2 focus:ring-brand-500"
-              aria-label="Toggle Theme"
+          <div className="mt-6 pt-6 border-t border-gray-200 dark:border-gray-800 space-y-4 flex-shrink-0">
+            {/* GitHub Link */}
+            <a 
+              href="https://github.com/voku/PromptMastery"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="flex items-center gap-2 p-3 rounded-lg bg-gray-100 dark:bg-gray-800 text-gray-700 dark:text-gray-300 hover:bg-gray-200 dark:hover:bg-gray-700 transition-colors text-sm font-medium group"
             >
-              {isDark ? <Sun size={18} /> : <Moon size={18} />}
-            </button>
+              <Github size={18} className="group-hover:scale-110 transition-transform" />
+              <span>Contribute on GitHub</span>
+            </a>
+
+            {/* Theme Toggle */}
+            <div className="flex items-center justify-between">
+              <span className="text-sm font-medium text-gray-500">Appearance</span>
+              <button 
+                onClick={toggleTheme}
+                className="p-2 rounded-lg bg-gray-100 dark:bg-gray-800 text-gray-600 dark:text-gray-400 hover:bg-gray-200 dark:hover:bg-gray-700 transition-colors focus:outline-none focus:ring-2 focus:ring-brand-500"
+                aria-label="Toggle Theme"
+              >
+                {isDark ? <Sun size={18} /> : <Moon size={18} />}
+              </button>
+            </div>
           </div>
         </div>
       </aside>
