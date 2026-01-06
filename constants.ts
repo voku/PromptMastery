@@ -803,6 +803,23 @@ for _ in range(depth):
       compatibleWith: ["Automated Evaluations"],
       incompatibleWith: ["Real-time applications", "Simple queries"]
     },
+    relatedLinks: [
+      {
+        title: "Tree of Thoughts: Deliberate Problem Solving with Large Language Models",
+        url: "https://arxiv.org/abs/2305.10601",
+        description: "Original research paper introducing Tree of Thoughts framework"
+      },
+      {
+        title: "Tree of Thoughts on GitHub",
+        url: "https://github.com/princeton-nlp/tree-of-thought-llm",
+        description: "Official implementation and examples of ToT prompting"
+      },
+      {
+        title: "LangChain Tree of Thought",
+        url: "https://python.langchain.com/docs/how_to/tree_of_thought/",
+        description: "Practical guide to implementing Tree of Thoughts in LangChain"
+      }
+    ],
     playgroundPrompt: "Evaluate the legal risk of this feature: 'Auto-subscribe users to the newsletter during checkout'.",
     playgroundTask: "Use Tree of Thoughts to explore 3 interpretations (Aggressive, GDPR-Compliant, Opt-in), evaluate legal risks for each, and select the safest path.",
     optimizedPrompt: `Goal: Determine the compliant implementation for 'Auto-subscribe users'.
@@ -1298,6 +1315,23 @@ response = ai.generate(grounding_prompt)
       compatibleWith: ["context-caching", "RAG"],
       incompatibleWith: ["Creative writing", "General brainstorming"]
     },
+    relatedLinks: [
+      {
+        title: "Retrieval-Augmented Generation for Knowledge-Intensive NLP Tasks",
+        url: "https://arxiv.org/abs/2005.11401",
+        description: "Seminal paper on RAG (Retrieval Augmented Generation) for grounding LLM outputs"
+      },
+      {
+        title: "LangChain RAG Tutorial",
+        url: "https://python.langchain.com/docs/tutorials/rag/",
+        description: "Practical guide to implementing RAG for fact-grounded question answering"
+      },
+      {
+        title: "Reducing Hallucinations in LLMs",
+        url: "https://platform.openai.com/docs/guides/prompt-engineering/strategy-provide-reference-text",
+        description: "OpenAI's guide on providing reference text to reduce hallucinations"
+      }
+    ],
     playgroundPrompt: "What is the refund policy?",
     playgroundTask: "Write a prompt that provides a fake policy text (e.g., 'No refunds after 2 days') and forces the AI to answer based ONLY on that text.",
     optimizedPrompt: `Context: 'Our policy is strict: Refunds are ONLY issued if the product was damaged upon arrival. No refunds for change of mind.'
