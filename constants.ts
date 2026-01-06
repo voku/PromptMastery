@@ -2609,5 +2609,172 @@ Instruct the model to operate *only* on the content inside those tags.
         explanation: "Tags create a structural boundary. The model learns that everything inside <user_input> is passive data to be processed, not active instructions to be obeyed."
       }
     ]
+  },
+  {
+    id: 'combined-techniques',
+    title: 'Technique Composition (Meta)',
+    shortDescription: 'Combine multiple prompting techniques (North Star + Blind Spots + Verification + Structure) into a unified meta-prompt for maximum reliability.',
+    icon: 'Layers3',
+    category: 'Reliability Engineering',
+    alsoKnownAs: ['Meta-Prompting', 'Composite Prompting', 'Technique Stacking'],
+    theoryContent: `
+      **Theory:**
+      Individual prompting techniques are powerful, but production-grade AI systems require **composing multiple techniques** into a unified framework. This meta-technique demonstrates how to combine:
+      
+      1. **North Star (Goal):** Define the immutable core objective
+      2. **Blind Spots (RedTeam):** Force self-critique and uncertainty detection
+      3. **Verification Protocol:** Require evidence-based validation
+      4. **Structured Output:** Use clear sections and checklists
+      
+      **The Pattern:**
+      Instead of applying techniques in isolation, create a layered prompt architecture where each technique reinforces the others. The North Star provides direction, Blind Spots prevent overconfidence, Verification grounds claims in facts, and Structure ensures parseable output.
+      
+      **Real-world Application:**
+      This approach has been successfully used in production environments. For example, when creating comprehensive documentation or analysis tools, combining North Star ("Maximize truth-seeking accuracy") with tool-first verification ("ALWAYS use available tools first"), structured output (multiple sections for facts, uncertainties, and critique), and self-critique (RedTeam persona) produces high-quality, reliable results with built-in error detection.
+    `,
+    technologyContent: `
+      **Technology:**
+      *   **Prompt Layering:** Stack techniques hierarchically - North Star at system level, verification in user instructions, output format in constraints
+      *   **Reinforcement Learning from Human Feedback (RLHF):** Models trained with RLHF respond better to multi-constraint prompts
+      *   **Chain-of-Verification:** Combining CoT with fact-checking creates a verification loop
+      
+      **Implementation Strategy:**
+      1. **System Prompt Layer:** Place North Star and core constraints
+      2. **Instruction Layer:** Add verification requirements and tool usage mandates
+      3. **Output Layer:** Define structured format with explicit sections
+      4. **Validation Layer:** Include self-critique and uncertainty detection
+      
+      **Real-world Example:**
+      *   **Content Summarization Agent:**
+          - North Star: "Accuracy > Speed. Never hallucinate features."
+          - Tool Mandate: "ALWAYS browse_page before summarizing URLs"
+          - Verification: "Quote directly from sources"
+          - Structure: "Section 1: Facts, Section 2: Uncertainties, Section 3: Self-Critique"
+          - Result: High-fidelity summaries with explicit uncertainty flagging
+    `,
+    codeExample: `
+# Composite Prompt Example
+system_prompt = """
+NORTH STAR: Maximize truth-seeking accuracy. 
+Prioritize verifiable facts over speed.
+Never hallucinate features not present in sources.
+"""
+
+user_instruction = """
+<verification_protocol>
+1. ALWAYS use browse_page tool for URLs
+2. Check repository metadata for date-sensitive content
+3. Quote features directly from tool outputs
+4. Flag uncertainties explicitly
+</verification_protocol>
+
+<output_format>
+Section 1: Tool-sourced facts (verbatim quotes)
+Section 2: Explicit uncertainties or discrepancies
+Section 3: RedTeam self-critique
+</output_format>
+
+<task>
+Summarize: https://example.com/project-documentation
+</task>
+
+<redteam_mandate>
+Before finalizing: Attack your draft for:
+- Overconfidence or assumed features
+- Hallucinated interactivity
+- Helpfulness bias (making it sound better than it is)
+</redteam_mandate>
+"""
+
+response = client.chat.completions.create(
+    model="gpt-4",
+    messages=[
+        {"role": "system", "content": system_prompt},
+        {"role": "user", "content": user_instruction}
+    ],
+    temperature=0.1  # Low temp for fact-based work
+)
+    `,
+    tradeOffs: {
+      pros: ["Highest quality outputs", "Built-in error detection", "Production-grade reliability", "Self-documenting prompt structure"],
+      cons: ["Verbose (high token usage)", "Slower due to verification steps", "Requires careful technique selection to avoid conflicts"],
+      compatibleWith: ["workflow-phases", "instruction-enclosure", "multi-pass-refinement"],
+      incompatibleWith: ["controlled-hallucination"]
+    },
+    relatedLinks: [
+      {
+        title: "Chain-of-Verification Reduces Hallucination",
+        url: "https://arxiv.org/abs/2309.11495",
+        description: "Research on combining verification with generation for improved accuracy"
+      },
+      {
+        title: "Constitutional AI: Harmlessness from AI Feedback",
+        url: "https://arxiv.org/abs/2212.08073",
+        description: "Anthropic's approach to combining multiple constraints and self-critique"
+      },
+      {
+        title: "Prompt Engineering Guide: Advanced Techniques",
+        url: "https://www.promptingguide.ai/techniques/prompt_chaining",
+        description: "Guide on combining and chaining multiple prompting techniques"
+      }
+    ],
+    playgroundPrompt: "Research and summarize the latest features of React 19.",
+    playgroundTask: "Create a composite prompt that combines: (1) North Star for accuracy, (2) Tool-first mandate, (3) Structured output with fact/uncertainty sections, (4) Self-critique requirement.",
+    optimizedPrompt: `NORTH STAR: Truth > Speed. Never hallucinate.
+
+VERIFICATION PROTOCOL:
+- Use web_search tool first for "React 19 features"
+- Cite sources for each feature claim
+- Distinguish confirmed vs. announced features
+
+OUTPUT FORMAT:
+## Verified Features (with sources)
+[list with citations]
+
+## Uncertainties
+[what's unclear or conflicting]
+
+## Self-Critique
+[check: did I hallucinate? overstate? miss caveats?]
+
+TASK: Summarize React 19 features
+REDTEAM: Before responding, attack your draft for helpfulness bias.`,
+    optimizedExample: `
+**Analysis:** A simple "summarize React 19" prompt often produces hallucinated features, outdated info, or overconfident claims without sources.
+
+**Optimized Strategy (Composite):**
+
+1. **North Star Layer:** "Truth > Speed" prevents rushing to answer
+2. **Tool Layer:** Mandates web_search before responding
+3. **Structure Layer:** Separates facts from uncertainties
+4. **Validation Layer:** Self-critique catches overconfidence
+
+**Example Output:**
+> **Verified Features:**
+> - Server Components (Source: React blog, Oct 2024)
+> - Actions API for forms (Source: React docs)
+>
+> **Uncertainties:**
+> - Release date shows as "Q1 2025" in blog but "Q2 2025" in roadmap
+>
+> **Self-Critique:**
+> - Initially claimed "automatic batching" but this was React 18, removed from draft
+    `,
+    quiz: [
+      {
+        id: 'q_composite',
+        question: "What is the primary benefit of combining multiple prompting techniques?",
+        options: ["It uses more tokens", "Each technique reinforces others, creating production-grade reliability with built-in error detection", "It makes prompts harder to read", "It's only useful for research papers"],
+        correctIndex: 1,
+        explanation: "Composite prompting creates a layered defense system where techniques compensate for each other's weaknesses - North Star provides direction, Verification prevents hallucination, Structure ensures clarity, and Self-Critique catches errors."
+      },
+      {
+        id: 'q_composite2',
+        question: "Why place the North Star in the system prompt rather than user prompt?",
+        options: ["System prompts are cheaper", "System prompts have higher privilege and are harder for user inputs to override", "It makes the code shorter", "User prompts can't contain constraints"],
+        correctIndex: 1,
+        explanation: "System prompts establish immutable constraints that persist across the conversation and cannot be easily overridden by subsequent user inputs, making them ideal for North Star goals."
+      }
+    ]
   }
 ];
