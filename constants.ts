@@ -2613,7 +2613,7 @@ Instruct the model to operate *only* on the content inside those tags.
   {
     id: 'combined-techniques',
     title: 'Technique Composition (Meta)',
-    shortDescription: 'Combine multiple prompting techniques (North Star + Blind Spots + Verification) into a unified meta-prompt for maximum reliability.',
+    shortDescription: 'Combine multiple prompting techniques (North Star + Blind Spots + Verification + Structure) into a unified meta-prompt for maximum reliability.',
     icon: 'Layers3',
     category: 'Reliability Engineering',
     alsoKnownAs: ['Meta-Prompting', 'Composite Prompting', 'Technique Stacking'],
@@ -2630,7 +2630,7 @@ Instruct the model to operate *only* on the content inside those tags.
       Instead of applying techniques in isolation, create a layered prompt architecture where each technique reinforces the others. The North Star provides direction, Blind Spots prevent overconfidence, Verification grounds claims in facts, and Structure ensures parseable output.
       
       **Real-world Application:**
-      The example Pull Request #4 in the PromptMastery repository demonstrates this approach: it used a composite prompt combining North Star ("Maximize truth-seeking accuracy"), tool-first verification ("ALWAYS use available tools first"), structured output (Sections 1-3), and self-critique (RedTeam persona) to generate high-quality documentation enhancements.
+      This approach has been successfully used in production environments. For example, when creating comprehensive documentation or analysis tools, combining North Star ("Maximize truth-seeking accuracy") with tool-first verification ("ALWAYS use available tools first"), structured output (multiple sections for facts, uncertainties, and critique), and self-critique (RedTeam persona) produces high-quality, reliable results with built-in error detection.
     `,
     technologyContent: `
       **Technology:**
@@ -2675,7 +2675,7 @@ Section 3: RedTeam self-critique
 </output_format>
 
 <task>
-Summarize: https://github.com/voku/PromptMastery/
+Summarize: https://example.com/project-documentation
 </task>
 
 <redteam_mandate>
