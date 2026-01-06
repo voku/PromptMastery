@@ -4,7 +4,7 @@ import { Technique } from '../types';
 import { Playground } from './Playground';
 import { Quiz } from './Quiz';
 import { TechniqueDiagram } from './TechniqueDiagram';
-import { BookOpen, Code2, Brain, Activity, Terminal, ArrowRight, ArrowLeft, CheckCircle, TrendingUp, TrendingDown, Link2, Unlink, Tag, ExternalLink } from 'lucide-react';
+import { BookOpen, Code2, Brain, Activity, Terminal, ArrowRight, ArrowLeft, CheckCircle, TrendingUp, TrendingDown, Link2, Unlink, Tag, ExternalLink, FileText } from 'lucide-react';
 import { Button } from './ui/Button';
 import { TECHNIQUES } from '../constants';
 
@@ -55,7 +55,7 @@ export const TechniqueView: React.FC<TechniqueViewProps> = ({ technique, onQuizC
   // Scroll Spy to update active section
   useEffect(() => {
     const handleScroll = () => {
-      const sections = ['theory', 'technology', 'lab', 'quiz'];
+      const sections = ['theory', 'technology', 'resources', 'lab', 'quiz'];
       const mainContainer = document.querySelector('main');
       if (!mainContainer) return;
 
@@ -140,6 +140,7 @@ export const TechniqueView: React.FC<TechniqueViewProps> = ({ technique, onQuizC
           {[
             { id: 'theory', label: 'Theory', icon: BookOpen },
             { id: 'technology', label: 'Technology', icon: Code2 },
+            { id: 'resources', label: 'Related Resources', icon: FileText },
             { id: 'lab', label: 'Practice Lab', icon: Brain },
             { id: 'quiz', label: 'Quiz', icon: Activity },
           ].map(item => (

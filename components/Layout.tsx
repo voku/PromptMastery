@@ -160,6 +160,7 @@ export const Layout: React.FC<LayoutProps> = ({ currentTechniqueId, onNavigate, 
       <main 
         ref={mainRef}
         className="flex-1 overflow-y-auto bg-gray-50 dark:bg-gray-950 p-4 md:p-8 lg:p-12 relative w-full scroll-smooth vt-content"
+        style={{ paddingTop: 0 }}
       >
         {children}
       </main>
