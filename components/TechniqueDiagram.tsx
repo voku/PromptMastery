@@ -572,6 +572,66 @@ export const TechniqueDiagram: React.FC<DiagramProps> = ({ techniqueId }) => {
             </div>
         );
 
+      case 'combined-techniques':
+        return (
+            <div className="flex flex-col items-center gap-4 w-full max-w-lg">
+                <h4 className="text-xs font-bold text-gray-400 uppercase tracking-widest">Layered Meta-Architecture</h4>
+                <div className="relative w-64 h-48 flex items-center justify-center">
+                    {/* Base Layer - North Star */}
+                    <div className="absolute bottom-4 w-full">
+                        <div className="bg-gradient-to-r from-blue-100 to-blue-50 dark:from-blue-900/30 dark:to-blue-900/10 border border-blue-200 dark:border-blue-800 rounded-lg p-2 text-center shadow-md">
+                            <div className="flex items-center justify-center gap-1.5 mb-1">
+                                <Compass size={12} className="text-blue-600 dark:text-blue-400" />
+                                <span className="text-[10px] font-bold text-blue-700 dark:text-blue-300">North Star</span>
+                            </div>
+                            <span className="text-[8px] text-blue-600 dark:text-blue-400">Core Goal & Constraints</span>
+                        </div>
+                    </div>
+                    
+                    {/* Second Layer - Verification */}
+                    <div className="absolute bottom-20 w-5/6">
+                        <div className="bg-gradient-to-r from-green-100 to-green-50 dark:from-green-900/30 dark:to-green-900/10 border border-green-200 dark:border-green-800 rounded-lg p-2 text-center shadow-md">
+                            <div className="flex items-center justify-center gap-1.5 mb-1">
+                                <ClipboardCheck size={12} className="text-green-600 dark:text-green-400" />
+                                <span className="text-[10px] font-bold text-green-700 dark:text-green-300">Verification</span>
+                            </div>
+                            <span className="text-[8px] text-green-600 dark:text-green-400">Evidence-Based Validation</span>
+                        </div>
+                    </div>
+                    
+                    {/* Third Layer - Structure */}
+                    <div className="absolute bottom-36 w-4/6">
+                        <div className="bg-gradient-to-r from-purple-100 to-purple-50 dark:from-purple-900/30 dark:to-purple-900/10 border border-purple-200 dark:border-purple-800 rounded-lg p-2 text-center shadow-md">
+                            <div className="flex items-center justify-center gap-1.5 mb-1">
+                                <Braces size={12} className="text-purple-600 dark:text-purple-400" />
+                                <span className="text-[10px] font-bold text-purple-700 dark:text-purple-300">Structure</span>
+                            </div>
+                            <span className="text-[8px] text-purple-600 dark:text-purple-400">Formatted Output</span>
+                        </div>
+                    </div>
+                    
+                    {/* Top Layer - RedTeam */}
+                    <div className="absolute top-2 w-3/6">
+                        <div className="bg-gradient-to-r from-red-100 to-red-50 dark:from-red-900/30 dark:to-red-900/10 border border-red-200 dark:border-red-800 rounded-lg p-2 text-center shadow-md">
+                            <div className="flex items-center justify-center gap-1.5 mb-1">
+                                <Eye size={12} className="text-red-600 dark:text-red-400" />
+                                <span className="text-[10px] font-bold text-red-700 dark:text-red-300">Self-Critique</span>
+                            </div>
+                            <span className="text-[8px] text-red-600 dark:text-red-400">Blind Spot Detection</span>
+                        </div>
+                    </div>
+                    
+                    {/* Connection Lines */}
+                    <div className="absolute inset-0 flex items-center justify-center pointer-events-none">
+                        <div className="w-px h-full bg-gradient-to-b from-red-300 via-purple-300 via-green-300 to-blue-300 dark:from-red-800 dark:via-purple-800 dark:via-green-800 dark:to-blue-800 opacity-30"></div>
+                    </div>
+                </div>
+                <div className="text-[10px] text-gray-500 font-mono text-center bg-gray-50 dark:bg-gray-900 px-3 py-1 rounded-full border border-gray-200 dark:border-gray-700">
+                    Each layer reinforces the others
+                </div>
+            </div>
+        );
+
       // --- HIGH-PERFORMANCE OPTIMIZATION ---
 
       case 'contextual-justification':
