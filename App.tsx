@@ -1,9 +1,10 @@
 import React, { useState, useEffect } from 'react';
 import { Layout } from './components/Layout';
 import { TechniqueView } from './components/TechniqueView';
+import { MetaPromptModal } from './components/MetaPromptModal';
 import { TECHNIQUES } from './constants';
 import * as Icons from 'lucide-react';
-import { ArrowRight, Terminal, Copy, Check, CheckCircle, Tag, AlertCircle, X, Sparkles } from 'lucide-react';
+import { ArrowRight, Terminal, Copy, Check, CheckCircle, Tag, AlertCircle, X, Sparkles, FileDown } from 'lucide-react';
 import { useClipboard } from './hooks/useClipboard';
 
 // Add type support for View Transitions API which might not be in the TS environment yet
@@ -16,6 +17,7 @@ declare global {
 function App() {
   const [currentTechniqueId, setCurrentTechniqueId] = useState<string | null>(null);
   const [completedTechniques, setCompletedTechniques] = useState<string[]>([]);
+  const [isMetaPromptModalOpen, setIsMetaPromptModalOpen] = useState(false);
   
   // Use a global clipboard hook for the grid listing, or manage IDs locally
   // We'll use a local ID tracker combined with the hook logic for the grid
@@ -114,6 +116,13 @@ function App() {
                >
                  Start the Course <ArrowRight size={20} />
                </button>
+               <button 
+                 onClick={() => setIsMetaPromptModalOpen(true)}
+                 className="px-8 py-3 rounded-full bg-gradient-to-r from-brand-600 to-teal-500 text-white font-bold text-lg hover:shadow-xl hover:-translate-y-1 transition-all flex items-center gap-2"
+               >
+                 <FileDown size={20} />
+                 Export Meta-Prompt
+               </button>
             </div>
           </div>
 
@@ -203,6 +212,7 @@ function App() {
             })}
           </div>
         </div>
+        <MetaPromptModal isOpen={isMetaPromptModalOpen} onClose={() => setIsMetaPromptModalOpen(false)} />
       </Layout>
     );
   }
