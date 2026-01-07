@@ -92,8 +92,8 @@ export const MetaPromptModal: React.FC<MetaPromptModalProps> = ({ isOpen, onClos
               <Sparkles size={24} />
             </div>
             <div>
-              <h2 className="text-2xl font-bold text-gray-900 dark:text-white">Export Meta-Prompt</h2>
-              <p className="text-sm text-gray-500 dark:text-gray-400">Generate documentation using all PromptMastery techniques</p>
+              <h2 className="text-2xl font-bold text-gray-900 dark:text-white">Export Meta-Prompt Generator</h2>
+              <p className="text-sm text-gray-500 dark:text-gray-400">Create optimized prompts for any task using all PromptMastery techniques</p>
             </div>
           </div>
           <button
@@ -125,8 +125,8 @@ export const MetaPromptModal: React.FC<MetaPromptModalProps> = ({ isOpen, onClos
                   <div className="flex items-start gap-3 mb-2">
                     <Layers size={20} className={selectedType === 'full' ? 'text-brand-500' : 'text-gray-400'} />
                     <div className="flex-1">
-                      <h3 className="font-bold text-gray-900 dark:text-white">Full Meta-Prompt</h3>
-                      <p className="text-xs text-gray-500 dark:text-gray-400 mt-1">Complete system prompt + all techniques with detailed explanations</p>
+                      <h3 className="font-bold text-gray-900 dark:text-white">Full Meta-Prompt Generator</h3>
+                      <p className="text-xs text-gray-500 dark:text-gray-400 mt-1">All 56 techniques with examples + instructions to create optimized prompts</p>
                     </div>
                   </div>
                   <span className="text-xs text-gray-400">~15-20K tokens</span>
@@ -144,8 +144,8 @@ export const MetaPromptModal: React.FC<MetaPromptModalProps> = ({ isOpen, onClos
                   <div className="flex items-start gap-3 mb-2">
                     <Sparkles size={20} className={selectedType === 'compact' ? 'text-brand-500' : 'text-gray-400'} />
                     <div className="flex-1">
-                      <h3 className="font-bold text-gray-900 dark:text-white">Compact Meta-Prompt</h3>
-                      <p className="text-xs text-gray-500 dark:text-gray-400 mt-1">Condensed version with essential instructions and technique list</p>
+                      <h3 className="font-bold text-gray-900 dark:text-white">Quick Generator</h3>
+                      <p className="text-xs text-gray-500 dark:text-gray-400 mt-1">Condensed technique list with instructions for rapid prompt creation</p>
                     </div>
                   </div>
                   <span className="text-xs text-gray-400">~3-5K tokens</span>
@@ -191,10 +191,10 @@ export const MetaPromptModal: React.FC<MetaPromptModalProps> = ({ isOpen, onClos
                 How to Use
               </h3>
               <ol className="text-sm text-blue-800 dark:text-blue-200 space-y-1 list-decimal list-inside">
-                <li>Copy or download the meta-prompt</li>
+                <li>Copy or download the meta-prompt generator</li>
                 <li>Paste it into your AI assistant (Claude, GPT-4, etc.)</li>
-                <li>Replace [YOUR_CODE_FILES] or [PASTE YOUR CODE HERE] with your actual code</li>
-                <li>The AI will generate comprehensive documentation using all PromptMastery techniques</li>
+                <li>Replace the placeholder with YOUR specific task (e.g., "write unit tests", "generate API docs", "refactor code")</li>
+                <li>The AI will create an optimized prompt for your task using the most relevant PromptMastery techniques</li>
               </ol>
             </div>
           </div>
