@@ -24,7 +24,6 @@ PromptMastery is an interactive educational web platform designed to help develo
   
   <!-- Primary Meta Tags -->
   <title>PromptMastery - Master LLM Optimization & Prompt Engineering</title>
-  <meta name="title" content="PromptMastery - Master LLM Optimization & Prompt Engineering">
   <meta name="description" content="Interactive platform teaching 30+ LLM optimization techniques for production AI apps. Learn agentic architecture, RAG systems, security, and performance patterns.">
   <meta name="keywords" content="LLM optimization, prompt engineering, AI development, agentic architecture, RAG systems, retrieval augmented generation, AI security, production AI, large language models, prompt patterns">
   <meta name="author" content="voku">
@@ -104,7 +103,7 @@ The design should look professional, readable, and optimized for social media sh
 ### Pre-deployment verification:
 - [ ] **Build and test**: Run `npm run build` to ensure the social preview image is included in the production build
 - [ ] **Image accessibility**: Verify that `social-preview.svg` is accessible at `https://voku.github.io/PromptMastery/social-preview.svg` after deployment
-- [ ] **Convert to PNG if needed**: If social platforms don't render SVG properly, convert to PNG using a tool like ImageMagick or an online converter: `convert social-preview.svg -resize 1200x630 social-preview.png`
+- [ ] **Convert to PNG if needed**: If social platforms don't render SVG properly, convert to PNG using ImageMagick or an online converter: `convert -density 150 -background white social-preview.svg -resize 1200x630! -flatten social-preview.png`
 - [ ] **Update meta tags**: If converting to PNG, update all `og:image` and `twitter:image` URLs to reference `social-preview.png` instead of `.svg`
 
 ### Social media preview testing:
