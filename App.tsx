@@ -7,13 +7,6 @@ import * as Icons from 'lucide-react';
 import { ArrowRight, Terminal, Copy, Check, CheckCircle, Tag, AlertCircle, X, Sparkles, FileDown } from 'lucide-react';
 import { useClipboard } from './hooks/useClipboard';
 
-// Add type support for View Transitions API which might not be in the TS environment yet
-declare global {
-  interface Document {
-    startViewTransition?: (callback: () => void) => { finished: Promise<void> };
-  }
-}
-
 function App() {
   const [currentTechniqueId, setCurrentTechniqueId] = useState<string | null>(null);
   const [completedTechniques, setCompletedTechniques] = useState<string[]>([]);
